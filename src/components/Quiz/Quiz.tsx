@@ -9,12 +9,17 @@ type QuizProps = {
 };
 
 function Quiz({ subject, quizzes }: QuizProps) {
+  const [score, setScore] = useState(0);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const questions =
     quizzes.find((quiz) => quiz.title === subject)?.questions ?? [];
 
   const handleNext = () => {
     setCurrentQuestionIdx((curr) => curr + 1);
+  };
+
+  const updateScore = () => {
+    setScore(score + 1);
   };
 
   return (
@@ -26,6 +31,7 @@ function Quiz({ subject, quizzes }: QuizProps) {
       />
 
       <Answer
+        updateScore={updateScore}
         handleNext={handleNext}
         options={questions[currentQuestionIdx].options}
         correctAnswer={questions[currentQuestionIdx].answer}

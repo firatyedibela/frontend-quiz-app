@@ -5,10 +5,16 @@ import Error from './Error';
 type AnswerProps = {
   options: string[];
   correctAnswer: string;
+  updateScore: () => void;
   handleNext: () => void;
 };
 
-function Answer({ options, correctAnswer, handleNext }: AnswerProps) {
+function Answer({
+  options,
+  correctAnswer,
+  updateScore,
+  handleNext,
+}: AnswerProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
   const [selectedOption, setSelectedOption] = useState<String | null>(null);
@@ -17,6 +23,10 @@ function Answer({ options, correctAnswer, handleNext }: AnswerProps) {
     if (selectedOption) {
       setIsError(false);
       setIsSubmitted(true);
+
+      if (selectedOption === correctAnswer) {
+        updateScore();
+      }
     } else {
       setIsError(true);
     }
