@@ -1,0 +1,11 @@
+@mixin icon-main() {
+  width: 56px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+@mixin icon-mobile() {
+  width: 40px;
+  border-radius: 8px;
+  padding: 5px;
+}

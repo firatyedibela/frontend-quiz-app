@@ -1,0 +1,11 @@
+@use '../abstracts/mixins' as *;
+
+.subject-icon {
+  @include icon-main();
+}
+
+@media (max-width: 375px) {
+  .subject-icon {
+    @include icon-mobile();
+  }
+}
