@@ -8,10 +8,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Rubik;
 }
 
 body {
-  font-family: rubik;
+  background-color: $light-grey;
+  background-image: url('/assets/images/pattern-background-desktop-light.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  transition: all 300ms;
+}
+
+body.dark {
+  background-color: $dark-navy;
+  background-image: url('/assets/images/pattern-background-desktop-dark.svg');
 }
 
 img {
@@ -22,4 +35,8 @@ img {
 
 li {
   list-style-type: none;
+}
+
+button {
+  cursor: pointer;
 }

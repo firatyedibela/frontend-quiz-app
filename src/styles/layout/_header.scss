@@ -1,0 +1,64 @@
+@use '../abstracts/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+
+  &__subject {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__subject-name {
+    font-size: 28px;
+    line-height: 1;
+    color: $dark-navy;
+    font-weight: 500;
+  }
+
+  &__theme-controller {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+  }
+
+  &__theme-icon {
+    width: 24px;
+  }
+
+  &__toggle-theme-btn {
+    width: 48px;
+    height: 28px;
+    background-color: $purple;
+    border: none;
+    border-radius: 100px;
+    position: relative;
+  }
+
+  &__toggle-theme-btn::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+    transition: all 350ms;
+  }
+
+  &__toggle-theme-btn.dark::before {
+    left: calc(100% - 24px);
+  }
+}
+
+body.dark {
+  .header__subject-name {
+    color: white;
+  }
+}

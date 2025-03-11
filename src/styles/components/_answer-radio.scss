@@ -1,0 +1,123 @@
+@use '../abstracts/variables' as *;
+
+.answer-option {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 24px;
+  gap: 32px;
+  display: flex;
+
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: 500;
+
+  background-color: white;
+  border: 3px solid white;
+  transition: all 250ms;
+  cursor: pointer;
+
+  input {
+    appearance: none;
+    position: absolute;
+  }
+
+  &:hover {
+    .answer-index {
+      background-color: #f6e7ff;
+      color: $purple;
+    }
+  }
+
+  &:has(input:checked) {
+    border: 3px solid $purple;
+
+    .answer-index {
+      color: white;
+      background-color: $purple;
+      transition: all 300ms;
+    }
+  }
+}
+
+.answer-index {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: $light-grey;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms;
+  color: $grey-navy;
+}
+
+.answer-text {
+  font-size: 28px;
+  line-height: 1;
+  color: $dark-navy;
+}
+
+.answer-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  display: none;
+}
+
+.answer-form.submitted {
+  // When submitted, disable buttons
+  .answer-option {
+    pointer-events: none;
+  }
+
+  // Show correct answer icon
+  .answer-option.correct {
+    .answer-icon {
+      display: block;
+    }
+  }
+
+  // Display selected option's icon(correct or wrong)
+  .answer-option:has(input:checked) {
+    .answer-icon {
+      display: block;
+    }
+  }
+
+  // Style correct option + selected
+  .answer-option.correct:has(input:checked) {
+    border-color: $green;
+
+    .answer-index {
+      background-color: $green;
+      transition: none;
+    }
+  }
+
+  // Style wrong option + selected
+  .answer-option.wrong:has(input:checked) {
+    border-color: $red;
+
+    .answer-index {
+      background-color: $red;
+      transition: none;
+    }
+  }
+}
+
+body.dark {
+  .answer-option {
+    background-color: $navy;
+    border-color: $navy;
+
+    &:has(input:checked) {
+      border-color: $purple;
+    }
+  }
+
+  .answer-text {
+    color: white;
+  }
+}

@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.subject-btn {
+  padding: 17px 20px;
+  border: none;
+  border-radius: 24px;
+  width: 100%;
+
+  display: flex;
+  gap: 32px;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: 500;
+  color: $dark-navy;
+
+  background-color: white;
+  border: 3px solid white;
+  transition: all 250ms;
+}
+
+.subject-btn.dark {
+  background-color: #3b4d66;
+  color: white;
+  border-color: #3b4d66;
+}
+
+.subject-btn:hover {
+  border-color: $purple;
+}

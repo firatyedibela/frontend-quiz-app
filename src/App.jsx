@@ -1,13 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
+import Header from './components/layout/Header';
+import { Home } from './components/home';
+import { Quiz } from './components/quiz';
 
 function App() {
+  const [subject, setSubject] = useState('');
+  const quizzesRef = useRef([]);
+
+  const onSubjectChange = (subject) => {
+    setSubject(subject);
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch('/data.json');
+        const data = await response.json();
+        quizzesRef.current = data.quizzes;
+        console.log(quizzesRef.current);
+      } catch (err) {
+        console.error('Error fetching data: ' + err);
+      }
+    };
+
+    getData();
+  }, []);
+
+  const filteredQuiz = useMemo(
+    () => quizzesRef.current.find((quiz) => quiz.title === subject),
+    [subject]
+  );
+
   return (
-    <div>
-      <ul>
-        <li>Hello</li>
-        <li>World</li>
-        <li>Today</li>
-      </ul>
+    <div className="app-container">
+      <Header subject={subject} />
+      <main className="main">
+        {subject ? (
+          <Quiz questions={filteredQuiz.questions} />
+        ) : (
+          <div>
+            <Home onSubjectChange={onSubjectChange} />
+          </div>
+        )}
+      </main>
     </div>
   );
 }

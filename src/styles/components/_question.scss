@@ -1,0 +1,25 @@
+@use '../abstracts/variables' as *;
+
+.question-counter {
+  font-size: 20px;
+  font-weight: 150%;
+  font-style: italic;
+  color: $grey-navy;
+}
+
+.question-text {
+  font-size: 36px;
+  line-height: 120%;
+  color: $dark-navy;
+  font-weight: 500;
+}
+
+body.dark {
+  .question-counter {
+    color: $light-bluish;
+  }
+
+  .question-text {
+    color: white;
+  }
+}

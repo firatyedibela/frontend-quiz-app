@@ -1,0 +1,60 @@
+@use '../abstracts/variables' as *;
+
+.answer-form {
+  flex-basis: 564px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.answer-btn {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 32px;
+  background-color: $purple;
+  border: none;
+  border-radius: 28px;
+  color: white;
+  width: 100%;
+  transition: all 150ms;
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.answer-btn:hover::after {
+  opacity: 0.5;
+}
+
+.answer-error {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer-error-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.answer-error-text {
+  color: $red;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+body.dark {
+  .answer-error-text {
+    color: $light-grey;
+  }
+}

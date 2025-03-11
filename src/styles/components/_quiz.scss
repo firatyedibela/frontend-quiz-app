@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as *;
+
+.quiz {
+  display: flex;
+  justify-content: space-between;
+
+  &__question-half {
+    display: flex;
+    flex-direction: column;
+    height: 452px;
+    gap: 27px;
+    max-width: 465px;
+  }
+
+  &__answers-half {
+    flex-basis: 564px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}

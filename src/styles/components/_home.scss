@@ -1,0 +1,40 @@
+@use '../abstracts/variables' as *;
+
+.home {
+  display: flex;
+  justify-content: space-between;
+
+  &__welcome-half {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 8px;
+    font-size: 64px;
+    font-weight: 300;
+    color: $dark-navy;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__pick-subject-text {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 150%;
+    color: $grey-navy;
+  }
+
+  &__subject-btns-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex-basis: 564px;
+  }
+}
