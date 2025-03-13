@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AnswerRadio from './AnswerRadio';
+import errorIcon from '../../../assets/images/icon-error.svg';
 
 function Answer({
   options,
@@ -84,11 +85,7 @@ function Answer({
       </form>
       {isError && (
         <div className="answer-error">
-          <img
-            className="answer-error-icon"
-            src="/assets/images/icon-error.svg"
-            alt="Error icon"
-          />
+          <img className="answer-error-icon" src={errorIcon} alt="Error icon" />
           <p className="answer-error-text">Please select an answer</p>
         </div>
       )}
