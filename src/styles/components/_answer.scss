@@ -32,8 +32,10 @@
   transition: opacity 150ms;
 }
 
-.btn-primary:hover::after {
-  opacity: 0.5;
+@media (min-width: 768px) {
+  .btn-primary:hover::after {
+    opacity: 0.5;
+  }
 }
 
 .answer-error {
