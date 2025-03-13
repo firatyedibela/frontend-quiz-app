@@ -23,6 +23,7 @@ function Header({ subject }) {
       <div className="header__theme-controller">
         <img className="header__theme-icon" src={sun} alt="Sun" />
         <button
+          aria-label="Toggle Theme"
           onClick={toggleTheme}
           className={
             isDarkMode
