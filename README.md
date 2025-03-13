@@ -19,8 +19,8 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/firatyedibela/frontend-mentor-challenges/tree/main/testimonials-grid-section)
-- Live Site URL: [Live Site](https://testimonials-grid-section-seven-theta.vercel.app)
+- Solution URL: [GitHub Repository](https://github.com/firatyedibela/frontend-quiz-app?tab=readme-ov-file)
+- Live Site URL: [Live Site](https://vercel.com/firatyedibelas-projects/frontend-quiz-app)
 
 ## My process
 
