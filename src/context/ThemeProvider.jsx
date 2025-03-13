@@ -6,7 +6,6 @@ function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'dark' ? true : false
   );
-  console.log(isDarkMode);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);

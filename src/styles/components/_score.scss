@@ -1,0 +1,140 @@
+@use '../abstracts/variables' as *;
+
+.score {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 8px;
+    font-size: 64px;
+    font-weight: 300;
+    color: $dark-navy;
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  &__summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex-basis: 564px;
+  }
+
+  &__summary {
+    border-radius: 24px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__subject-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__subject-name {
+    font-size: 24px;
+    font-weight: 500;
+    color: $dark-navy;
+  }
+
+  &__value-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__value {
+    font-size: 144px;
+    font-weight: 500;
+    color: $dark-navy;
+    line-height: 1;
+  }
+
+  &__out-of {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $grey-navy;
+  }
+}
+
+body.dark {
+  .score__text {
+    color: white;
+  }
+
+  .score__summary {
+    background-color: $navy;
+  }
+
+  .score__subject-name,
+  .score__value {
+    color: white;
+  }
+
+  .score__out-of {
+    color: $light-bluish;
+  }
+}
+
+@media (max-width: 950px) {
+  .score {
+    flex-direction: column;
+    gap: 64px;
+
+    &__summary-container {
+      flex-basis: 0;
+    }
+  }
+}
+
+@media (max-width: 495px) {
+  .score {
+    gap: 40px;
+
+    &__text {
+      font-size: 40px;
+    }
+
+    &__summary-container {
+      gap: 12px;
+    }
+
+    &__summary {
+      border-radius: 12px;
+      gap: 16px;
+      padding: 32px;
+    }
+
+    &__subject-section {
+      gap: 16px;
+    }
+
+    &__subject-name {
+      font-size: 18px;
+    }
+
+    &__value {
+      font-size: 88px;
+    }
+
+    &__out-of {
+      font-size: 18px;
+      line-height: 1;
+    }
+  }
+}

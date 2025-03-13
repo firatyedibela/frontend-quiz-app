@@ -1,40 +1,58 @@
 import React, { useState } from 'react';
 import AnswerRadio from './AnswerRadio';
 
-function Answer({ options, answer, handleNextQuestion, onQuestionSubmit }) {
+function Answer({
+  options,
+  answer,
+  isLastQuestion,
+  onSubmit,
+  updateScore,
+  onNextQuestion,
+  onFinish,
+}) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [isError, setIsError] = useState(false);
 
   const formClassName = isSubmitted ? 'answer-form submitted' : 'answer-form';
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     setSelectedAnswer(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitQuestion = (e) => {
     e.preventDefault();
 
     if (!selectedAnswer) {
       setIsError(true);
       return;
-    } else {
-      if (!isSubmitted) {
-        setIsSubmitted(true);
-        onQuestionSubmit();
-      } else {
-        setIsSubmitted(false);
-        handleNextQuestion();
-        setSelectedAnswer('');
-      }
-
-      setIsError(false);
     }
+
+    if (selectedAnswer === answer) {
+      updateScore();
+    }
+
+    onSubmit();
+    setIsError(false);
+    setIsSubmitted(true);
+  };
+
+  const handleNextQuestion = (e) => {
+    e.preventDefault();
+
+    setIsSubmitted(false);
+    setSelectedAnswer('');
+
+    onNextQuestion();
   };
 
   return (
     <>
-      <form action="#" className={formClassName} onSubmit={handleSubmit}>
+      <form
+        action="#"
+        className={formClassName}
+        onSubmit={handleSubmitQuestion}
+      >
         {options.map((option, index) => (
           <AnswerRadio
             key={option}
@@ -43,15 +61,23 @@ function Answer({ options, answer, handleNextQuestion, onQuestionSubmit }) {
             isChecked={selectedAnswer === option}
             name="answer-option"
             index={index} // For A-B-C-D mapping
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         ))}
-        {isSubmitted ? (
-          <button type="submit" className="answer-btn">
+        {isLastQuestion ? (
+          <button onClick={onFinish} className="btn-primary">
+            Finish
+          </button>
+        ) : isSubmitted ? (
+          <button
+            type="button"
+            onClick={handleNextQuestion}
+            className="btn-primary"
+          >
             Next Question
           </button>
         ) : (
-          <button type="submit" className="answer-btn">
+          <button type="submit" className="btn-primary">
             Submit
           </button>
         )}

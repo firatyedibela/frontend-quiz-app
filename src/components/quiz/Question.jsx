@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ProgressBar from './ProgressBar';
-import { Theme } from '../../context/ThemeProvider';
 
-function Question({ question, index, total, submittedCount }) {
-  const { isDarkMode } = useContext(Theme);
-
+function Question({ question, index, total, submitCount }) {
   return (
     <>
-      <span className="question-counter">
-        Question {index} of {total}
-      </span>
-      <p className="question-text">{question}</p>
-      <ProgressBar current={submittedCount} max={total} />
+      <div className="question-info">
+        <span className="question-counter">
+          Question {index} of {total}
+        </span>
+        <p className="question-text">{question}</p>
+      </div>
+      <ProgressBar current={submitCount} max={total} />
     </>
   );
 }

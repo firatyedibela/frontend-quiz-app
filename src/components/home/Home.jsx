@@ -1,25 +1,16 @@
-import React, { useContext } from 'react';
-import { Theme } from '../../context/ThemeProvider';
+import React from 'react';
 import SubjectButton from './SubjectButton';
 
 const subjectList = ['HTML', 'CSS', 'JavaScript', 'Accessibility'];
 
 function Home({ onSubjectChange }) {
-  const { isDarkMode } = useContext(Theme);
-
   return (
     <div className="home">
       <div className="home__welcome-half">
-        <h1
-          className="home__title"
-          style={{ color: isDarkMode ? 'white' : undefined }}
-        >
-          Welcome to the <br /> <strong>Frontend Quiz</strong>
+        <h1 className="home__title">
+          Welcome to the <strong>Frontend Quiz</strong>
         </h1>
-        <p
-          className="home__pick-subject-text"
-          style={{ color: isDarkMode ? '#abc1e1' : '#626C7F' }}
-        >
+        <p className="home__pick-subject-text">
           Pick a subject to get started.
         </p>
       </div>

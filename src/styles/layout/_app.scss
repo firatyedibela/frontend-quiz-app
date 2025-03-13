@@ -6,3 +6,18 @@
   gap: 85px;
   margin-top: 83px;
 }
+
+@media (max-width: 950px) {
+  .app-container {
+    margin: 0;
+    padding: 40px 64px;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 0px;
+    gap: 0px;
+  }
+}

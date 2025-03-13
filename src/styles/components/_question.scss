@@ -2,6 +2,7 @@
 
 .question-counter {
   font-size: 20px;
+  height: 30px;
   font-weight: 150%;
   font-style: italic;
   color: $grey-navy;
@@ -21,5 +22,16 @@ body.dark {
 
   .question-text {
     color: white;
+  }
+}
+
+@media (max-width: 495px) {
+  .question-counter {
+    font-size: 14px;
+    height: 21px;
+  }
+
+  .question-text {
+    font-size: 20px;
   }
 }

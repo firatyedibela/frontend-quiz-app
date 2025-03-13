@@ -1,37 +1,66 @@
 import React, { useState } from 'react';
 import Question from './Question';
 import Answer from './Answer';
+import Score from './Score';
 
-function Quiz({ questions }) {
-  const [index, setIndex] = useState(0);
-  const [submittedQuestionsCount, setSubmittedQuestionsCount] = useState(0);
+function Quiz({ questions, subject, onSubjectChange }) {
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+  const [submitCount, setSubmitCount] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const [score, setScore] = useState(0);
 
-  const handleNextQuestion = () => {
-    setIndex(index + 1);
+  const handleSubmit = () => {
+    setSubmitCount(submitCount + 1);
   };
 
-  const increaseSubmittedQuestionsCount = () => {
-    setSubmittedQuestionsCount(submittedQuestionsCount + 1);
+  const handleUpdateScore = () => {
+    setScore(score + 1);
+  };
+
+  const handleNextQuestion = () => {
+    setCurrentQuestionIdx(currentQuestionIdx + 1);
+  };
+
+  const handleFinish = () => {
+    setIsFinished(true);
+  };
+
+  const handlePlayAgain = () => {
+    onSubjectChange('');
   };
 
   return (
     <div className="quiz">
-      <div className="quiz__question-half">
-        <Question
-          question={questions[index].question}
-          index={index + 1}
+      {!isFinished ? (
+        <>
+          <div className="quiz__question-half">
+            <Question
+              question={questions[currentQuestionIdx].question}
+              index={currentQuestionIdx + 1}
+              submitCount={submitCount}
+              total={questions.length}
+            />
+          </div>
+          <div className="quiz__answers-half">
+            <Answer
+              options={questions[currentQuestionIdx].options}
+              answer={questions[currentQuestionIdx].answer}
+              isLastQuestion={submitCount === questions.length}
+              onSubmit={handleSubmit}
+              onNextQuestion={handleNextQuestion}
+              updateScore={handleUpdateScore}
+              onFinish={handleFinish}
+            />
+          </div>
+        </>
+      ) : (
+        <Score
+          score={score}
+          subject={subject}
           total={questions.length}
-          submittedCount={submittedQuestionsCount}
+          onPlayAgain={handlePlayAgain}
         />
-      </div>
-      <div className="quiz__answers-half">
-        <Answer
-          options={questions[index].options}
-          answer={questions[index].answer}
-          handleNextQuestion={handleNextQuestion}
-          onQuestionSubmit={increaseSubmittedQuestionsCount}
-        />
-      </div>
+      )}
     </div>
   );
 }

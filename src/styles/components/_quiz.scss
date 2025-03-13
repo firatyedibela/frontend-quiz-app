@@ -3,13 +3,14 @@
 .quiz {
   display: flex;
   justify-content: space-between;
+  gap: 4rem;
 
   &__question-half {
     display: flex;
     flex-direction: column;
     height: 452px;
-    gap: 27px;
     max-width: 465px;
+    gap: 40px;
   }
 
   &__answers-half {
@@ -17,5 +18,41 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+  }
+}
+
+.question-info {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+@media (max-width: 950px) {
+  .quiz {
+    flex-direction: column;
+
+    &__question-half {
+      height: auto;
+      max-width: none;
+    }
+  }
+}
+
+@media (max-width: 495px) {
+  .quiz {
+    gap: 40px;
+
+    &__question-half {
+      gap: 24px;
+    }
+
+    &__answers-half {
+      flex-basis: 0;
+      gap: 12px;
+    }
+  }
+
+  .question-info {
+    gap: 12px;
   }
 }

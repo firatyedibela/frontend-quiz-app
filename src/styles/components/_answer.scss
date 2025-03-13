@@ -7,7 +7,7 @@
   gap: 24px;
 }
 
-.answer-btn {
+.btn-primary {
   font-size: 28px;
   font-weight: 500;
   line-height: 1;
@@ -20,9 +20,10 @@
   transition: all 150ms;
   position: relative;
   overflow: hidden;
+  margin-top: auto;
 }
 
-.answer-btn::after {
+.btn-primary::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -31,7 +32,7 @@
   transition: opacity 150ms;
 }
 
-.answer-btn:hover::after {
+.btn-primary:hover::after {
   opacity: 0.5;
 }
 
@@ -56,5 +57,35 @@
 body.dark {
   .answer-error-text {
     color: $light-grey;
+  }
+}
+
+@media (max-width: 495px) {
+  .answer-form {
+    gap: 12px;
+    flex-basis: 0;
+  }
+
+  .btn-primary {
+    margin: 0;
+    font-size: 18px;
+    padding: 12px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .answer-error {
+    gap: 8px;
+  }
+
+  .answer-error-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .answer-error-text {
+    color: $red;
+    font-size: 12px;
+    line-height: 150%;
   }
 }

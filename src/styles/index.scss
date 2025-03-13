@@ -1,6 +1,7 @@
 @use './base/reset';
 @use './layout/app';
 @use './layout/header';
+@use './layout/main';
 @use './components/home';
 @use './components/subject-btn';
 @use './components/subject-icon';
@@ -9,3 +10,4 @@
 @use './components/answer';
 @use './components/answer-radio';
 @use './components/progress-bar';
+@use './components/score';

@@ -6,10 +6,10 @@
   border-radius: 24px;
   gap: 32px;
   display: flex;
+  min-width: 400px;
 
   align-items: center;
 
-  font-size: 28px;
   font-weight: 500;
 
   background-color: white;
@@ -44,6 +44,7 @@
   width: 56px;
   height: 56px;
   border-radius: 8px;
+  font-size: 28px;
   background-color: $light-grey;
   flex-shrink: 0;
   display: flex;
@@ -119,5 +120,25 @@ body.dark {
 
   .answer-text {
     color: white;
+  }
+}
+
+@media (max-width: 495px) {
+  .answer-option {
+    min-width: auto;
+    gap: 16px;
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .answer-index {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+
+  .answer-text {
+    font-size: 18px;
   }
 }

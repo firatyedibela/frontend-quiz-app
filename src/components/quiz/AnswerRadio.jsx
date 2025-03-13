@@ -9,15 +9,7 @@ const indexMap = {
   3: 'D',
 };
 
-function AnswerRadio({
-  value,
-  name,
-  isCorrect,
-  isChecked,
-  index,
-  onChange,
-  disabled,
-}) {
+function AnswerRadio({ value, name, isCorrect, isChecked, index, onChange }) {
   return (
     <label
       htmlFor={value}

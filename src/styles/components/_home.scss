@@ -3,11 +3,13 @@
 .home {
   display: flex;
   justify-content: space-between;
+  gap: 64px;
 
   &__welcome-half {
     display: flex;
     flex-direction: column;
     gap: 48px;
+    min-width: 450px;
   }
 
   &__title {
@@ -36,5 +38,53 @@
     flex-direction: column;
     gap: 24px;
     flex-basis: 564px;
+  }
+}
+
+body.dark {
+  .home__title {
+    color: white;
+  }
+
+  .home__pick-subject-text {
+    color: $light-bluish;
+  }
+}
+
+@media (max-width: 950px) {
+  .home {
+    flex-direction: column;
+    gap: 64px;
+
+    &__welcome-half {
+      gap: 16px;
+      min-width: 0;
+    }
+
+    &__subject-btns-container {
+      flex-basis: 0;
+    }
+  }
+}
+
+@media (max-width: 495px) {
+  .home {
+    gap: 40px;
+
+    &__welcome-half {
+      gap: 16px;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__subject-btns-container {
+      gap: 12px;
+    }
+
+    &__pick-subject-text {
+      font-size: 14px;
+    }
   }
 }

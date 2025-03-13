@@ -9,7 +9,7 @@
   &__subject {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 24px;
   }
 
   &__subject-name {
@@ -60,5 +60,46 @@
 body.dark {
   .header__subject-name {
     color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 72px;
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 495px) {
+  .header {
+    &__subject {
+      gap: 16px;
+    }
+
+    &__subject-name {
+      font-size: 18px;
+    }
+
+    &__theme-controller {
+      gap: 8px;
+    }
+
+    &__theme-icon {
+      width: 16px;
+    }
+
+    &__toggle-theme-btn {
+      width: 32px;
+      height: 20px;
+    }
+
+    &__toggle-theme-btn::before {
+      width: 12px;
+      height: 12px;
+    }
+
+    &__toggle-theme-btn.dark::before {
+      left: calc(100% - 16px);
+    }
   }
 }
